@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS techUnlocks;
+DROP TABLE IF EXISTS techPrerequisites;
+DROP TABLE IF EXISTS recipeInput;
+DROP TABLE IF EXISTS recipeOutput;
+DROP TABLE IF EXISTS recipeProducers;
+DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS producers;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS types;

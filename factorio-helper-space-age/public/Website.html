@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Factorio Calc</title>
+	<!--Links style.css file with this file.-->
+	<link rel="icon" href="Graphics/Icons/assembling-machine-2.png">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page">
+
+	<!--The top of the website.-->
+	<header class="header">
+		<h1>Factorio Calc</h1>
+
+		<!--Game mode switch: Vanilla <-> Space Age. Changes the items, recipes and technologies.-->
+		<div class="modeSwitch" id="modeSwitch">
+			<span class="modeLabel" data-mode="vanilla">Vanilla</span>
+			<label class="switch" title="Switch between Factorio Vanilla and Factorio Space Age">
+				<input type="checkbox" id="modeToggle">
+				<span class="slider"></span>
+			</label>
+			<span class="modeLabel" data-mode="space-age">Space Age</span>
+		</div>
+	</header>
+	<div class="notice" id="notice" hidden></div>
+
+	<div class="layout">
+
+		<!--The left side of the website, AKA sidemenu (item inventory).-->
+		<aside class="leftContainer">
+			<iframe src="sidemenu.html" class="leftiframe" id="leftiframe" title="Items"></iframe>
+		</aside>
+
+		<!--The right side of the website.-->
+		<div class="right">
+			<nav class="viewTabs">
+				<button class="viewTab active" data-view="calc">Calculator</button>
+				<button class="viewTab productionTechTab" data-view="tech">Production technology</button>
+			</nav>
+
+			<main class="main">
+
+				<!--Calculator view.-->
+				<section id="calcView">
+					<div class="toolbar">
+						<button class="sidemenuButton" onclick="sidebar()" title="Show / hide menu">&#9776;</button>
+
+						<div class="selected" id="selected">
+							<span class="muted">Select an item in the menu on the left</span>
+						</div>
+
+						<label>Rate
+							<input type="number" id="rate" min="0" step="any" value="60">
+						</label>
+						<label>Unit
+							<select id="unit">
+								<option value="min">per minute</option>
+								<option value="sec">per second</option>
+							</select>
+						</label>
+						<label>Global assembler
+							<select id="assembler">
+								<option value="assembling-machine-1">Assembling machine 1</option>
+								<option value="assembling-machine-2" selected>Assembling machine 2</option>
+								<option value="assembling-machine-3">Assembling machine 3</option>
+							</select>
+						</label>
+						<label>Global furnace
+							<select id="furnace">
+								<option value="stone-furnace">Stone furnace</option>
+								<option value="steel-furnace">Steel furnace</option>
+								<option value="electric-furnace" selected>Electric furnace</option>
+							</select>
+						</label>
+					</div>
+
+					<div class="results" id="results">
+						<p class="muted">The production tree, machine counts and required raw materials will appear here.</p>
+					</div>
+				</section>
+
+				<!--Technologies view (tech.js).-->
+				<section id="techView" hidden>
+					<div class="toolbar">
+						<label>Search
+							<input type="search" id="techSearch" class="techSearch" placeholder="Search technologies…" autocomplete="off">
+						</label>
+						<label>Global research lab
+							<select id="lab"><option value="lab">Lab</option></select>
+						</label>
+						<span class="muted" id="techCount"></span>
+					</div>
+					<div class="techLayout">
+						<div class="techList" id="techList"></div>
+						<aside class="techDetail" id="techDetail"></aside>
+					</div>
+				</section>
+
+			</main>
+		</div>
+	</div>
+
+	<script src="Scripts.js"></script>
+	<script src="calc.js"></script>
+	<script src="tech.js"></script>
+</body>
+</html>

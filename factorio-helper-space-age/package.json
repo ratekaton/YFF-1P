@@ -1,0 +1,12 @@
+{
+  "name": "factorio-calc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Factorio production calculator based on FactorioLab data",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "build-db": "node build_db.mjs",
+    "start": "node server.mjs"
+  }
+}
